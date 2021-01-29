@@ -1,6 +1,4 @@
 import {combineReducers} from 'redux';
-import {homeStore} from '../Screens/Home/Home.reducer';
+import {home_store} from '../Screens/Home/Home.reducer';
 
-export default combineReducers({
-  homeStore,
-});
+export default combineReducers({home_store});

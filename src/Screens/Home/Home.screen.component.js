@@ -1,15 +1,32 @@
+//@flow
+
 import React from 'react';
-import {Text, View, Image, FlatList} from 'react-native';
-import {Styles} from './HomeScreen.style';
+import {
+  Text,
+  View,
+  Image,
+  FlatList,
+  TouchableWithoutFeedback,
+} from 'react-native';
+import {Styles} from './Home.screen.style';
 import {IMAGES} from '../../Themes';
 import {NavigationProp} from '@react-navigation/native';
-import {keyExtractor, renderScreen} from '../../Utils/Helpers.utils';
+import {keyExtractor, renderScreen} from '../../Utils/Helpers.util';
+import {Routes} from '../../Navigations/Routes';
 
 type Props = {
   navigation: NavigationProp,
+  count: number,
+  increaseCount: Function,
+  decreaseCount: Function,
 };
 
-const HomeScreen = ({navigation}: Props) => {
+const HomeScreen = ({
+  navigation,
+  count,
+  increaseCount,
+  decreaseCount,
+}: Props) => {
   const renderHeader = () => {
     return (
       <View style={Styles.header}>
@@ -47,6 +64,14 @@ const HomeScreen = ({navigation}: Props) => {
             horizontal
           />
         </View>
+        <View style={Styles.textSection}>
+          <Text
+            onPress={() => increaseCount()}
+            onLongPress={() => decreaseCount()}
+            style={Styles.text}>
+            {'count: ' + count}
+          </Text>
+        </View>
       </View>
     );
   };
@@ -55,10 +80,13 @@ const HomeScreen = ({navigation}: Props) => {
     const imageCard = {uri: item.imageUrl};
 
     return (
-      <View style={Styles.card}>
-        <Image style={Styles.imageCard} source={imageCard} />
-        <Text style={Styles.textCard}>{item.title}</Text>
-      </View>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate(Routes.DetailScreen)}>
+        <View style={Styles.card}>
+          <Image style={Styles.imageCard} source={imageCard} />
+          <Text style={Styles.textCard}>{item.title}</Text>
+        </View>
+      </TouchableWithoutFeedback>
     );
   };
 

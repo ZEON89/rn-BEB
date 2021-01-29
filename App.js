@@ -1,21 +1,31 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
+
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {SafeAreaView} from 'react-native';
+import {Provider as StoreProvider} from 'react-redux';
+import {AppStatusBar} from './src/Components';
+import RootNavigator from './src/Navigations/RootNavigator';
+import {getStore} from './src/Redux/Store';
+import {COLORS} from './src/Themes';
 
-import HomeScreen from './src/Screens/Home/HomeScreen';
-import DetailsScreen from './src/Screens/Detail/DetailScreen';
-import {routes} from './src/routes';
-
-const Stack = createStackNavigator();
+const store = getStore();
 
 const App: () => React$Node = () => {
+  const APP_THEME = COLORS.BLACK;
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name={routes.HomeScreen} component={HomeScreen} />
-        <Stack.Screen name={routes.DetailScreen} component={DetailsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={{flex: 1, backgroundColor: APP_THEME}}>
+      <AppStatusBar backgroundColor={APP_THEME} barStyle="light-content" />
+      <StoreProvider store={store}>
+        <RootNavigator />
+      </StoreProvider>
+    </SafeAreaView>
   );
 };
 

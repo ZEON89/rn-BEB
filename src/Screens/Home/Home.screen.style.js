@@ -1,11 +1,10 @@
 import {StyleSheet} from 'react-native';
-import {rh, rw, rbr} from '../../Utils/Layout.utils';
+import {rh, rw, rbr, rf} from '../../Utils/Layout.util';
 import {COLORS} from '../../Themes';
 
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.GREY_BACKGROUND,
   },
   header: {
     height: rh(200),
@@ -24,13 +23,14 @@ const Styles = StyleSheet.create({
     height: rh(300),
   },
   card: {
-    height: rh(150),
-    width: rw(170),
-    backgroundColor: COLORS.WHITE,
+    height: rh(75),
+    width: rw(175),
+    backgroundColor: 'white',
     borderRadius: rbr(6),
     elevation: 5,
     alignItems: 'center',
     marginHorizontal: rw(10),
+    overflow: 'hidden',
   },
   imageCard: {
     height: rh(80),
@@ -40,6 +40,13 @@ const Styles = StyleSheet.create({
   textCard: {
     flex: 1,
     marginVertical: rh(20),
+  },
+  textSection: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: rf(20),
   },
 });
 
