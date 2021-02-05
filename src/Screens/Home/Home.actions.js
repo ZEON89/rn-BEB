@@ -8,9 +8,10 @@ const increaseCount = () => (dispatch) => {
   });
 };
 
-const decreaseCount = () => (dispatch) => {
+const decreaseCount = (count) => (dispatch) => {
   dispatch({
     type: DECREASE_COUNT,
+    data: count
   });
 };
 

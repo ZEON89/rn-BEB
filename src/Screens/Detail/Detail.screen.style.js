@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
-import {rh, rw, rbr, rf} from '../../Utils/Layout.util';
-import {COLORS} from '../../Themes';
+import {rh, rw, rbr,  } from '../../Utils/Layout.util';
+
 
 export const Styles = StyleSheet.create({
 button:{
     height: rh(30),
     width: rw(80),
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     borderRadius: rbr(6),
     alignItems: 'center',
     justifyContent: 'center',
@@ -14,6 +14,6 @@ button:{
     marginTop: rh (15)
 },
 textButton: {
-    color: 'white',
+    color: 'black',
 },
 });

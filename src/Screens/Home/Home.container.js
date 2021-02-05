@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   increaseCount: () => dispatch(increaseCount()),
-  decreaseCount: () => dispatch(decreaseCount()),
+  decreaseCount: (count) => dispatch(decreaseCount(count)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

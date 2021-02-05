@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
 import DetailScreen from './Detail.screen.component';
+import {setData} from './Detail.actions';
 
 const mapStateToProps = (state) => ({
-  count: state.home_store.count || 0,
+  person: state.detail_store.person,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  increaseCount: () => dispatch(increaseCount()),
-  decreaseCount: () => dispatch(decreaseCount()),
+  setData: (data) => dispatch(setData(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailScreen);

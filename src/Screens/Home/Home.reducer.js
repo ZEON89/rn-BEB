@@ -20,8 +20,8 @@ export const home_store = (state = initialState, action: ActionDefaultProp) => {
       };
     case DECREASE_COUNT:
       return {
-        ...state,
-        count: state.count - 1,
+        ...state, 
+        count: state.data,
       };
     default:
       return {...state};

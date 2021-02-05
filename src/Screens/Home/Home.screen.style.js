@@ -23,8 +23,8 @@ const Styles = StyleSheet.create({
     height: rh(300),
   },
   card: {
-    height: rh(75),
-    width: rw(175),
+    height: rh(90),
+    width: rw(160),
     backgroundColor: 'white',
     borderRadius: rbr(6),
     elevation: 5,
